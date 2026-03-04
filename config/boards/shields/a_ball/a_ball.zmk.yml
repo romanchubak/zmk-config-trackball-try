@@ -3,6 +3,6 @@ id: a_ball
 name: a_ball
 type: shield
 url: https://github.com/ak66666/ThumbsUp-Trackball
-requires: [pro_micro]
+requires: [seeeduino_xiao_ble]
 features:
   - pointer
