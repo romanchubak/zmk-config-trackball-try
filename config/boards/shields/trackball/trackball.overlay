@@ -1,0 +1,33 @@
+#include <dt-bindings/gpio/gpio.h>
+
+/ {
+    kscan0: kscan_0 {
+        status = "disabled";  // no keyboard matrix
+    };
+
+    &spi1 {
+        status = "okay";
+        pinctrl-0 = <&spi1_default>;
+        pinctrl-names = "default";
+        cs-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
+
+        pmw3360: pmw3360@0 {
+            compatible = "pixart,pmw3360";
+            reg = <0>;
+            spi-max-frequency = <2000000>;
+            irq-gpios = <&gpio0 3 GPIO_ACTIVE_HIGH>;
+        };
+    };
+
+    &pinctrl {
+        spi1_default: spi1_default {
+            group1 {
+                psels = <
+                    NRF_PSEL(SPIM_SCK, 0, 8)
+                    NRF_PSEL(SPIM_MOSI, 0, 10)
+                    NRF_PSEL(SPIM_MISO, 0, 9)
+                >;
+            };
+        };
+    };
+};
