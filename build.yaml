@@ -13,9 +13,5 @@
 #
 ---
 include:
-#  - board: nice_nano_v2
-include:
   - board: seeeduino_xiao_ble
-    shield: totem_trackball
-  - board: seeeduino_xiao_ble
-    shield: settings_reset
+    shield: a_ball
